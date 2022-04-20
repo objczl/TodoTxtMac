@@ -533,6 +533,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -743,7 +744,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_LDFLAGS[arch=*]" = "-Wl,-rpath,@loader_path/../Frameworks";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.15;
 			};
 			name = Debug;
 		};
@@ -781,7 +782,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				"OTHER_LDFLAGS[arch=*]" = "-Wl,-rpath,@loader_path/../Frameworks";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.15;
 			};
 			name = Release;
 		};
@@ -800,7 +801,7 @@
 				INFOPLIST_FILE = "TodoTxtMac/TodoTxtMac-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.descy.michael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.15;
 				TEST_HOST = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -820,7 +821,7 @@
 				INFOPLIST_FILE = "TodoTxtMac/TodoTxtMac-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.descy.michael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.15;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = app;
 			};
