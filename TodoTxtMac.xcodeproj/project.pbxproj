@@ -306,7 +306,10 @@
 				00B4CB9A18B43E8400313DAA /* Frameworks */,
 				00B4CB9918B43E8400313DAA /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		00B4CB9918B43E8400313DAA /* Products */ = {
 			isa = PBXGroup;
