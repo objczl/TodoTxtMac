@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TTMDocument">
@@ -12,21 +11,21 @@
                 <outlet property="arrayController" destination="z03-iY-Esn" id="WqA-XF-LYw"/>
                 <outlet property="bottomConstraint" destination="yCu-XX-tWa" id="l0K-0j-yVC"/>
                 <outlet property="rawTextCell" destination="B31-jc-X0I" id="WRb-Kc-eMO"/>
-                <outlet property="searchField" destination="MtW-Mu-7ja" id="Kva-PL-Nec"/>
                 <outlet property="statusBarTextField" destination="Sky-Qt-diC" id="SoO-R7-lpJ"/>
                 <outlet property="tableView" destination="FD8-v3-r5U" id="pBH-dg-EN3"/>
                 <outlet property="tableViewDelegate" destination="EHv-Hj-tOM" id="h3o-MM-3Ms"/>
                 <outlet property="textField" destination="4SD-Qr-9gz" id="SxF-oC-RrR"/>
+                <outlet property="textFieldDelegate" destination="xbd-2f-nS8" id="XT3-Ed-AzQ"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="TTMDocument" animationBehavior="default" id="5" userLabel="Window">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="133" y="235" width="510" height="447"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <value key="minSize" type="size" width="94" height="86"/>
             <view key="contentView" wantsLayer="YES" id="6">
                 <rect key="frame" x="0.0" y="0.0" width="510" height="447"/>
@@ -43,14 +42,13 @@
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" emptySelection="NO" autosaveColumns="NO" id="FD8-v3-r5U" customClass="TTMTableView">
                                             <rect key="frame" x="0.0" y="0.0" width="510" height="425"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="rawText" width="507" minWidth="100" maxWidth="10000" id="Psh-Gi-D1c">
+                                                <tableColumn identifier="rawText" width="478" minWidth="100" maxWidth="10000" id="Psh-Gi-D1c">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="rawText">
-                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                                     </tableHeaderCell>
@@ -73,11 +71,11 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="ciJ-RQ-uYU">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ciJ-RQ-uYU">
                                     <rect key="frame" x="1" y="411" width="509" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="hIl-mE-RGE">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="hIl-mE-RGE">
                                     <rect key="frame" x="494" y="1" width="15" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -90,7 +88,7 @@
                             <real value="3.4028234663852886e+38"/>
                         </customSpacing>
                     </stackView>
-                    <textField horizontalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Sky-Qt-diC">
+                    <textField horizontalCompressionResistancePriority="1" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sky-Qt-diC">
                         <rect key="frame" x="3" y="2" width="504" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="NXt-rJ-2VE"/>
@@ -121,53 +119,33 @@
                         <nil key="toolTip"/>
                         <size key="minSize" width="96" height="22"/>
                         <size key="maxSize" width="100000" height="22"/>
-                        <textField key="view" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="4SD-Qr-9gz">
+                        <textField key="view" horizontalHuggingPriority="750" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="4SD-Qr-9gz">
                             <rect key="frame" x="0.0" y="14" width="400" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="New task..." drawsBackground="YES" usesSingleLineMode="YES" id="Zzr-Le-XIh">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="Task..." drawsBackground="YES" usesSingleLineMode="YES" id="Zzr-Le-XIh">
                                 <font key="font" metaFont="system"/>
-                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
                                 <action selector="addNewTask:" target="-2" id="y7y-5H-mBy"/>
+                                <outlet property="delegate" destination="xbd-2f-nS8" id="V25-5B-6pO"/>
                             </connections>
                         </textField>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="B4880FAB-0558-4D02-A666-EB071DE8A773" label="Search" paletteLabel="Search" visibilityPriority="100" id="a5W-c1-Nr2">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="96" height="22"/>
-                        <size key="maxSize" width="140" height="22"/>
-                        <searchField key="view" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" id="MtW-Mu-7ja">
-                            <rect key="frame" x="0.0" y="14" width="96" height="22"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="iTq-XW-8IB">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            </searchFieldCell>
-                            <connections>
-                                <binding destination="-2" name="predicate" keyPath="self.searchFieldPredicate" id="GIK-On-p5m">
-                                    <dictionary key="options">
-                                        <string key="NSDisplayName">predicate</string>
-                                        <string key="NSPredicateFormat">rawText contains[cd] $value</string>
-                                    </dictionary>
-                                </binding>
-                            </connections>
-                        </searchField>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="B1S-jN-Ztr"/>
-                    <toolbarItem reference="a5W-c1-Nr2"/>
                 </defaultToolbarItems>
             </toolbar>
             <contentBorderThickness minY="22"/>
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
+            <point key="canvasLocation" x="139" y="612"/>
         </window>
         <arrayController objectClassName="TTMTask" automaticallyRearrangesObjects="YES" id="z03-iY-Esn">
+            <classReference key="objectClass" className="TTMTask"/>
             <connections>
                 <binding destination="-2" name="filterPredicate" keyPath="self.activeFilterPredicate" id="sjF-mO-jcs"/>
                 <binding destination="-2" name="contentArray" keyPath="self.taskList" id="6bb-CW-xta"/>
@@ -180,6 +158,7 @@
                 <outlet property="arrayController" destination="z03-iY-Esn" id="bZW-B4-fSs"/>
             </connections>
         </customObject>
+        <customObject id="xbd-2f-nS8" customClass="TTMTextFieldDelegate"/>
         <menu id="oa5-ZA-h8N">
             <items>
                 <menuItem title="Add New Task" keyEquivalent="n" id="DaS-lw-tom">

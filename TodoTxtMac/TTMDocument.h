@@ -51,6 +51,7 @@
 @class TTMTasklistMetadata;
 @class TTMTableView;
 @class TTMTableViewDelegate;
+@class TTMTextFieldDelegate;
 
 #define TASKMENUTAG   3000
 #define SORTMENUTAG   4000
@@ -81,8 +82,7 @@ typedef enum : NSUInteger {
 
 // Window controls
 @property (nonatomic, retain) IBOutlet NSTextField *textField;
-@property (nonatomic, retain) IBOutlet NSSearchField *searchField;
-@property (nonatomic, retain) IBOutlet NSPredicate *searchFieldPredicate;
+@property (nonatomic, retain) IBOutlet TTMTextFieldDelegate *textFieldDelegate;
 @property (nonatomic, retain) IBOutlet TTMTableView *tableView;
 @property (nonatomic, retain) IBOutlet TTMTableViewDelegate *tableViewDelegate;
 @property (nonatomic, retain) IBOutlet NSArrayController *arrayController;

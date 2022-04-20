@@ -81,6 +81,7 @@
 		00FA1D2A18F1EF4C0066A437 /* RelativeDates.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00FA1D2918F1EF4C0066A437 /* RelativeDates.strings */; };
 		00FB47861A733E6100F8D2B3 /* TTMDocumentStatusBarText.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB47851A733E6100F8D2B3 /* TTMDocumentStatusBarText.m */; };
 		00FCB2F918DB64510070BD4A /* TTMFilters.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00FCB2F818DB64510070BD4A /* TTMFilters.xib */; };
+		78BBA8B9280F97EB00475601 /* TTMTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BBA8B8280F97EB00475601 /* TTMTextFieldDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,8 @@
 		00FB47841A733E6100F8D2B3 /* TTMDocumentStatusBarText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTMDocumentStatusBarText.h; sourceTree = "<group>"; };
 		00FB47851A733E6100F8D2B3 /* TTMDocumentStatusBarText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTMDocumentStatusBarText.m; sourceTree = "<group>"; };
 		00FCB2F818DB64510070BD4A /* TTMFilters.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TTMFilters.xib; sourceTree = "<group>"; };
+		78BBA8B7280F97EB00475601 /* TTMTextFieldDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTMTextFieldDelegate.h; sourceTree = "<group>"; };
+		78BBA8B8280F97EB00475601 /* TTMTextFieldDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTMTextFieldDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +449,8 @@
 				006B26451A81C82D00B0E47A /* TTMFindReplace.xib */,
 				00B4CBAD18B43E8400313DAA /* TTMDocument.h */,
 				00B4CBAE18B43E8400313DAA /* TTMDocument.m */,
+				78BBA8B7280F97EB00475601 /* TTMTextFieldDelegate.h */,
+				78BBA8B8280F97EB00475601 /* TTMTextFieldDelegate.m */,
 				0086C98318B54F1A00A427AA /* TTMTableViewDelegate.h */,
 				0086C98418B54F1A00A427AA /* TTMTableViewDelegate.m */,
 				00F3961018C6AC010002EA3F /* TTMTableView.h */,
@@ -520,6 +525,7 @@
 				ORGANIZATIONNAME = "Michael Descy";
 				TargetAttributes = {
 					00B4CB9718B43E8400313DAA = {
+						LastSwiftMigration = 1330;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -593,6 +599,7 @@
 				00930EAD18B5371B0064D41B /* TTMTask.m in Sources */,
 				00F3961218C6AC010002EA3F /* TTMTableView.m in Sources */,
 				00930EB118B537C10064D41B /* TTMDateUtility.m in Sources */,
+				78BBA8B9280F97EB00475601 /* TTMTextFieldDelegate.m in Sources */,
 				00FA1D2818F1EF340066A437 /* FontNameTransformer.m in Sources */,
 				00D102B61991ABBE00D30237 /* TTMTasklistMetadata.m in Sources */,
 				00DA4A1D1D5BBEB600CFF2B1 /* TTMPredicateEditorTextRowTemplate.m in Sources */,
@@ -794,6 +801,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BUNDLE_LOADER = "";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -802,9 +810,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TodoTxtMac/TodoTxtMac-Prefix.pch";
 				INFOPLIST_FILE = "TodoTxtMac/TodoTxtMac-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.descy.michael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.15;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -814,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -822,9 +834,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TodoTxtMac/TodoTxtMac-Prefix.pch";
 				INFOPLIST_FILE = "TodoTxtMac/TodoTxtMac-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.descy.michael.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.15;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -49,6 +49,7 @@
 #import "TTMDateUtility.h"
 #import "TTMTableView.h"
 #import "TTMTableViewDelegate.h"
+#import "TTMTextFieldDelegate.h"
 #import "TTMFilterPredicates.h"
 #import "TTMFieldEditor.h"
 #import "RegExCategories.h"
@@ -105,8 +106,8 @@ static NSString * const RelativeDueDatePattern = @"(?<=due:)\\S*";
     [self.arrayController addObserver:self forKeyPath:@"selection" options:NSKeyValueObservingOptionNew context:nil];
     
     // Observe self to update search field filter
-    [self addObserver:self forKeyPath:@"searchFieldPredicate" options:NSKeyValueObservingOptionNew context:nil];
-    
+    [self addObserver:self forKeyPath:@"textFieldDelegate.predicate" options:NSKeyValueObservingOptionNew context:nil];
+
     // Observe NSUserDefaults to update undo-related preferences
     [[NSUserDefaults standardUserDefaults] addObserver:self
                                             forKeyPath:@"levelsOfUndo"
@@ -455,8 +456,7 @@ static NSString * const RelativeDueDatePattern = @"(?<=due:)\\S*";
     [self.arrayController addObject:newTask];
     [self reapplyActiveFilterPredicate];
     [self refreshTaskListWithSave:YES];
-    [self.textField setStringValue:@""];
-    
+
     // Optionally move focus to the task list depending on the user setting.
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"moveToTaskListAfterTaskCreation"]) {
         if ([self.arrayController.selectedObjects containsObject:newTask]) {
@@ -1242,7 +1242,7 @@ static NSString * const RelativeDueDatePattern = @"(?<=due:)\\S*";
     NSPredicate *filterPresetPredicate = [TTMFilterPredicates
                                           getFilterPredicateFromPresetNumber:presetNumber];
     self.activeFilterPredicate = [self combineFilterPresetPredicate:filterPresetPredicate
-                                          withSearchFilterPredicate:self.searchFieldPredicate];
+                                          withSearchFilterPredicate:self.textFieldDelegate.predicate];
     [TTMFilterPredicates setActiveFilterPredicate:self.activeFilterPredicate];
     [TTMFilterPredicates setActiveFilterPredicatePresetNumber:presetNumber];
     self.activeFilterPredicateNumber = presetNumber;
@@ -1440,15 +1440,7 @@ static NSString * const RelativeDueDatePattern = @"(?<=due:)\\S*";
 #pragma mark - Find Methods
 
 - (IBAction)moveFocusToSearchBox:(id)sender {
-    [self.searchField setRefusesFirstResponder:NO];
-    [self.windowForSheet makeFirstResponder:self.searchField];
-    // Starting in OS X 10.10 Yosemite, setting refusesFirstResponder to YES without a delay causes
-    // the search box to not be editable.
-    [self performSelector:@selector(makeSearchBoxRefuseFocus:) withObject:self afterDelay:0.5];
-}
-
-- (IBAction)makeSearchBoxRefuseFocus:(id)sender {
-    [self.searchField setRefusesFirstResponder:YES];
+    [self.windowForSheet makeFirstResponder:self.textField];
 }
 
 #pragma mark - Tasklist Metadata Methods
@@ -1494,12 +1486,12 @@ static NSString * const RelativeDueDatePattern = @"(?<=due:)\\S*";
         [self updateStatusBarText];
         return;
     }
-    
-    if ([keyPath isEqualToString:@"searchFieldPredicate"]) {
+
+    if ([keyPath isEqualToString:@"textFieldDelegate.predicate"]) {
         [self reapplyActiveFilterPredicate];
         return;
     }
-    
+
     if ([keyPath isEqualToString:@"levelsOfUndo"]) {
         [self.undoManager setLevelsOfUndo:[[NSUserDefaults standardUserDefaults] integerForKey:@"levelsOfUndo"]];
         return;
