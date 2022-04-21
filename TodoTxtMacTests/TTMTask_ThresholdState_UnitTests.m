@@ -69,7 +69,7 @@
 }
 
 - (void)testThresholdStateBefore {
-    NSString *rawText = @"(A) pick up groceries t:2020-01-31 due:2020-01-31";
+    NSString *rawText = @"(A) pick up groceries t:2030-01-31 due:2030-01-31";
     NSUInteger taskId = 0;
     TTMTask *task = [[TTMTask alloc] initWithRawText:rawText withTaskId:taskId];
     XCTAssertEqual(ThresholdAfterToday, task.thresholdState);
